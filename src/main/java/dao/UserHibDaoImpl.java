@@ -29,7 +29,7 @@ public class UserHibDaoImpl implements  UserDAO {
     }
 
     @Override
-    public User addNewUser(String name, String email, String role) {
+    public User createUser(String name, String email, String role) {
         User user = new User();
         user.setName(name);
         user.setRole(role);

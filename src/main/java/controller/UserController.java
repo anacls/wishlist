@@ -9,7 +9,9 @@ import static spark.Spark.*;
 public class UserController {
     public UserController(final UserService userService) {
         path("/api", () -> {
-            path("/user", () -> {
+
+            path("/users", () -> {
+
                 get("/:id", (request, response) -> {
                     String retorno;
                     User user = userService.getUser(Integer.parseInt(request.params("id")));
@@ -24,7 +26,8 @@ public class UserController {
                     }
                     return retorno;
                 });
-                post("/create", (request, response) -> {
+
+                post("", (request, response) -> {
                     String retorno;
                     User user = userService.addUser(request.queryParams("name"), request.queryParams("email"));
                     if(user != null) {
@@ -37,7 +40,6 @@ public class UserController {
                     }
                     return retorno;
                 });
-
                 get("", (request, response) -> {
                     List<User> users = userService.getAllUsers();
                     String retorno = "Usuários\n";

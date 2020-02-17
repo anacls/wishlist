@@ -22,7 +22,7 @@ public class UserServiceImpl implements  UserService {
         else{
             role = "ROLE_USER";
         }
-        return userDao.addNewUser(name, email, role);
+        return userDao.createUser(name, email, role);
     }
 
     @Override
