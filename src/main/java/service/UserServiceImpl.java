@@ -1,17 +1,17 @@
 package service;
-
+import dao.UserDAO;
 import dao.UserHibDaoImpl;
 import entity.User;
 
 import java.util.List;
 
-public class UserServiceImpl implements  UserService{
+public class UserServiceImpl implements  UserService {
 
-    private UserHibDaoImpl userHibDao = new UserHibDaoImpl();
+    private UserDAO userDao = new UserHibDaoImpl();
 
     @Override
     public User addUser(String name, String email) {
-        List<User> userList = userHibDao.getUserByEmail(email);
+        List<User> userList = userDao.getUsersByEmail(email);
         if(userList.size()>0){
             return null;
         }
@@ -22,6 +22,6 @@ public class UserServiceImpl implements  UserService{
         else{
             role = "ROLE_USER";
         }
-        return userHibDao.addNewUser(name, email, role);
+        return userDao.addNewUser(name, email, role);
     }
 }
