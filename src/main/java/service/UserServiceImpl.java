@@ -11,8 +11,8 @@ public class UserServiceImpl implements  UserService {
 
     @Override
     public User addUser(String name, String email) {
-        List<User> userList = userDao.getUsersByEmail(email);
-        if(userList.size()>0){
+        User user = userDao.findUserByEmail(email);
+        if(user != null) {
             return null;
         }
         String role;
@@ -23,5 +23,10 @@ public class UserServiceImpl implements  UserService {
             role = "ROLE_USER";
         }
         return userDao.addNewUser(name, email, role);
+    }
+
+    @Override
+    public User getUser(int id){
+        return userDao.findUserById(id);
     }
 }
