@@ -42,6 +42,13 @@ public class UserHibDaoImpl implements  UserDAO {
         return user;
     }
 
+    @Override
+    public List<User> findAll() {
+        Query query = callEntityManager().createQuery("from User");
+        List<User> users = query.getResultList();
+        return users;
+    }
+
     private EntityManager callEntityManager() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("user");
         return factory.createEntityManager();
