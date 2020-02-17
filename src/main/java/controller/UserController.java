@@ -1,7 +1,6 @@
 package controller;
 import entity.User;
 import service.UserService;
-
 import static spark.Spark.*;
 
 public class UserController {
