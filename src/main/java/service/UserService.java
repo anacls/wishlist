@@ -1,5 +1,7 @@
 package service;
 
+import entity.User;
+
 public interface UserService {
-    String addUser(String name, String email);
+    User addUser(String name, String email);
 }
