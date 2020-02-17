@@ -16,7 +16,7 @@ public class UserServiceImpl implements  UserService {
             return null;
         }
         String role;
-        if(email.contains("lulabs.com")){
+        if(email.contains("lulabs.com")) {
             role = "ROLE_ADMIN";
         }
         else{

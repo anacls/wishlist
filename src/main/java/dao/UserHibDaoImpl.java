@@ -11,7 +11,7 @@ import java.util.List;
 public class UserHibDaoImpl implements  UserDAO {
 
     @Override
-    public List<User> getUsersByEmail(String email){
+    public List<User> getUsersByEmail(String email) {
         Query query = callEntityManager().createQuery("select u from User as u where u.email = :paramEmail");
         query.setParameter("paramEmail", email);
         List<User> user = query.getResultList();
@@ -19,7 +19,7 @@ public class UserHibDaoImpl implements  UserDAO {
     }
 
     @Override
-    public User addNewUser(String name, String email, String role){
+    public User addNewUser(String name, String email, String role) {
         User user = new User();
         user.setName(name);
         user.setRole(role);
