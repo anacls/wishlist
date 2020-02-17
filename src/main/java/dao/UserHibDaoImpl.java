@@ -11,11 +11,21 @@ import java.util.List;
 public class UserHibDaoImpl implements  UserDAO {
 
     @Override
-    public List<User> getUsersByEmail(String email) {
+    public User findUserById(int id) {
+        Query query = callEntityManager().createQuery("select u from User as u where u.id = :paramId");
+        query.setParameter("paramId", id);
+        List<User> users = query.getResultList();
+        if(users.size() > 0) { return users.get(0); }
+        else { return null; }
+    }
+
+    @Override
+    public User findUserByEmail(String email) {
         Query query = callEntityManager().createQuery("select u from User as u where u.email = :paramEmail");
         query.setParameter("paramEmail", email);
-        List<User> user = query.getResultList();
-        return user;
+        List<User> users = query.getResultList();
+        if(users.size() > 0) { return users.get(0); }
+        else { return null; }
     }
 
     @Override
