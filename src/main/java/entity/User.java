@@ -1,10 +1,21 @@
 package entity;
-
+import javax.persistence.*;
+@Entity
+@Table(name = "user")
 public class User {
+
+    @Id
+    @GeneratedValue
     private int id;
+
+    @Column(name="name")
     private String name;
+
+    @Column(name="email")
     private String email;
 
+    @Column(name="role")
+    private String role;
 
     public int getId() {
         return id;
@@ -28,5 +39,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 }
