@@ -1,6 +1,9 @@
 package controller;
 import entity.User;
 import service.UserService;
+
+import java.util.List;
+
 import static spark.Spark.*;
 
 public class UserController {
@@ -31,6 +34,15 @@ public class UserController {
                     else {
                         response.status(400);
                         retorno = "Não foi possível criar um novo usuário, usuário já existente";
+                    }
+                    return retorno;
+                });
+
+                get("", (request, response) -> {
+                    List<User> users = userService.getAllUsers();
+                    String retorno = "Usuários\n";
+                    for (User user : users){
+                        retorno = retorno.concat(String.format("Nome: %s, Email: %s, Role: %s\n", user.getName(), user.getEmail(), user.getRole()));
                     }
                     return retorno;
                 });
