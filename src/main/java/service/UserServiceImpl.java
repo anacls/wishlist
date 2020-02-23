@@ -22,7 +22,7 @@ public class UserServiceImpl implements  UserService {
         else{
             role = "ROLE_USER";
         }
-        return userDao.createUser(name, email, role);
+        return userDao.addNewUser(name, email, role);
     }
 
     @Override
@@ -33,5 +33,10 @@ public class UserServiceImpl implements  UserService {
     @Override
     public List<User> getAllUsers() {
         return userDao.findAll();
+    }
+
+    @Override
+    public void removeUser(int id) {
+        userDao.deleteUser(id);
     }
 }

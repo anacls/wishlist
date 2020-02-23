@@ -9,9 +9,7 @@ import static spark.Spark.*;
 public class UserController {
     public UserController(final UserService userService) {
         path("/api", () -> {
-
             path("/users", () -> {
-
                 get("/:id", (request, response) -> {
                     String retorno;
                     User user = userService.getUser(Integer.parseInt(request.params("id")));
@@ -26,7 +24,6 @@ public class UserController {
                     }
                     return retorno;
                 });
-
                 post("", (request, response) -> {
                     String retorno;
                     User user = userService.addUser(request.queryParams("name"), request.queryParams("email"));
@@ -45,6 +42,19 @@ public class UserController {
                     String retorno = "Usuários\n";
                     for (User user : users){
                         retorno = retorno.concat(String.format("Nome: %s, Email: %s, Role: %s\n", user.getName(), user.getEmail(), user.getRole()));
+                    }
+                    return retorno;
+                });
+                delete("/:id", (request, response) -> {
+                    String retorno;
+                    userService.removeUser(Integer.parseInt(request.params("id")));
+                    if(userService.getUser(Integer.parseInt(request.params("id"))) == null) {
+                        response.status(200);
+                        retorno = "Excluido com sucesso";
+                    }
+                    else {
+                        response.status(404);
+                        retorno = "Não foi possível excluir o usuário";
                     }
                     return retorno;
                 });
