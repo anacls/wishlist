@@ -58,6 +58,21 @@ public class UserController {
                     }
                     return retorno;
                 });
+                put("/:id", (request, response) -> {
+                    String retorno;
+                    User user = userService.updateUser(Integer.parseInt(request.params("id")),
+                                                    request.queryParams("name"),
+                                                    request.queryParams("email"));
+                    if(user != null) {
+                        response.status(201);
+                        retorno = "Usuário atualizado com sucesso";
+                    }
+                    else {
+                        response.status(400);
+                        retorno = "Não foi possível atualizar usuário, usuário não existe";
+                    }
+                    return retorno;
+                });
             });
         });
     }

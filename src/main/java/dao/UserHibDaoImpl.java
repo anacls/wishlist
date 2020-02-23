@@ -60,6 +60,20 @@ public class UserHibDaoImpl implements UserDAO {
         manager.close();
     }
 
+    @Override
+    public User updateUser(int id, String name, String email){
+        EntityManager manager = callEntityManager();
+        manager.getTransaction().begin();
+        Query query = manager.createQuery("update User u set u.name= :paramName, u.email= :paramEmail where u.id= :paramId");
+        query.setParameter("paramName", name);
+        query.setParameter("paramEmail", email);
+        query.setParameter("paramId", id);
+        query.executeUpdate();
+        manager.getTransaction().commit();
+        manager.close();
+        return findUserById(id);
+    }
+
     private EntityManager callEntityManager() {
         EntityManagerFactory factory = Persistence.createEntityManagerFactory("user");
         return factory.createEntityManager();

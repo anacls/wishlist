@@ -10,4 +10,5 @@ public interface UserDAO {
     User addNewUser(String name, String email, String role);
     List<User> findAll();
     void deleteUser(int id);
+    User updateUser(int id, String name, String email);
 }
