@@ -8,7 +8,7 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.List;
 
-public class UserHibDaoImpl implements  UserDAO {
+public class UserHibDaoImpl implements UserDAO {
 
     @Override
     public User findUserById(int id) {
@@ -47,6 +47,17 @@ public class UserHibDaoImpl implements  UserDAO {
         Query query = callEntityManager().createQuery("from User");
         List<User> users = query.getResultList();
         return users;
+    }
+
+    @Override
+    public void deleteUser(int id){
+        EntityManager manager = callEntityManager();
+        manager.getTransaction().begin();
+        Query query = manager.createQuery("DELETE from User u where u.id= :paramId");
+        query.setParameter("paramId", id);
+        query.executeUpdate();
+        manager.getTransaction().commit();
+        manager.close();
     }
 
     private EntityManager callEntityManager() {
