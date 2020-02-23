@@ -34,4 +34,9 @@ public class UserServiceImpl implements  UserService {
     public List<User> getAllUsers() {
         return userDao.findAll();
     }
+
+    @Override
+    public void removeUser(int id) {
+        userDao.deleteUser(id);
+    }
 }
