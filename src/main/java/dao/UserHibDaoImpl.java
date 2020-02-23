@@ -55,6 +55,7 @@ public class UserHibDaoImpl implements UserDAO {
         manager.getTransaction().begin();
         Query query = manager.createQuery("DELETE from User u where u.id= :paramId");
         query.setParameter("paramId", id);
+        query.executeUpdate();
         manager.getTransaction().commit();
         manager.close();
     }
