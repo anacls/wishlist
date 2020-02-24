@@ -36,7 +36,9 @@ public class WishlistServiceImpl implements WishlistService {
 
     @Override
     public void deleteItem(int id){
-        wishlistDao.deleteItem(id);
+        if(getItem(id) != null) {
+            wishlistDao.deleteItem(id);
+        }
     }
 
     @Override
