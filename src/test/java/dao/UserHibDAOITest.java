@@ -48,7 +48,7 @@ public class UserHibDAOITest {
 
     @Test
     public void shouldReturnUsersList(){
-        assertTrue(userDAO.findAll().size()>2);
+        assertTrue(userDAO.findAll().size() >= 2);
     }
 
     @Test
