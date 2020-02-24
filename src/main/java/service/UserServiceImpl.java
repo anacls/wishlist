@@ -15,13 +15,7 @@ public class UserServiceImpl implements  UserService {
         if(user != null) {
             return null;
         }
-        String role;
-        if(email.contains("lulabs.com")) {
-            role = "ROLE_ADMIN";
-        }
-        else{
-            role = "ROLE_USER";
-        }
+        String role = getRole(email);
         return userDao.addNewUser(name, email, role);
     }
 
@@ -46,5 +40,12 @@ public class UserServiceImpl implements  UserService {
             return null;
         };
         return userDao.updateUser(id, name, email);
+    }
+
+    private String getRole(String email){
+        if(email.contains("lulabs.com")) {
+           return "ROLE_ADMIN";
+        }
+        return  "ROLE_USER";
     }
 }
