@@ -182,10 +182,12 @@ Esse projeto é uma API que representa um sistema de 'Lista de Favoritos'
 
   **Retorno:**
   * Se o produto for adicionado à lista:
+  
     `status:201`
 
     `Produto adicionado aos favoritos`
   * Se o produto não for adicionado à lista:
+  
     `status:400`
 
     `Não foi possível adicionar produto aos favoritos`
