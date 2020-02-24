@@ -1,7 +1,6 @@
 package dao;
 
 import entity.User;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
@@ -9,7 +8,6 @@ import javax.persistence.Query;
 import java.util.List;
 
 public class UserHibDaoImpl implements UserDAO {
-
     @Override
     public User findUserById(int id) {
         Query query = callEntityManager().createQuery("select u from User as u where u.id = :paramId");
@@ -50,7 +48,7 @@ public class UserHibDaoImpl implements UserDAO {
     }
 
     @Override
-    public void deleteUser(int id){
+    public void deleteUser(int id) {
         EntityManager manager = callEntityManager();
         manager.getTransaction().begin();
         Query query = manager.createQuery("DELETE from User u where u.id= :paramId");
@@ -61,7 +59,7 @@ public class UserHibDaoImpl implements UserDAO {
     }
 
     @Override
-    public User updateUser(int id, String name, String email){
+    public User updateUser(int id, String name, String email) {
         EntityManager manager = callEntityManager();
         manager.getTransaction().begin();
         Query query = manager.createQuery("update User u set u.name= :paramName, u.email= :paramEmail where u.id= :paramId");
