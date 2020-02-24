@@ -1,18 +1,18 @@
-### Wishlist
-#### Descrição:
+# Wishlist
+## Descrição:
 
 Esse projeto é uma API que representa um sistema de 'Lista de Favoritos'
 
-### Índice
+## Índice
 * [Pré-Requisitos](#pré-requisitos)
 * [Para começar](#para-começar)
 * [Compilando e Rodando o projeto](#compilando-e-rodando-o-projeto)
 * [API](#api)
-   * [User/Customer](#users)
-   * [Wishlist](#wishlist)
+   * [User/Customer](#users-path)
+   * [Wishlist](#wishlist-path)
 
 
-### Pré-Requisitos:
+## Pré-Requisitos:
 * [Java 8](https://www.oracle.com/java/technologies/javase-jdk8-downloads.html)
 * Instalação do maven:
 
@@ -26,7 +26,7 @@ Esse projeto é uma API que representa um sistema de 'Lista de Favoritos'
 
   `sudo apt install mysql-server`
 
-### Para começar:
+## Para começar:
 * Clone este repositório:
 
   `git clone git@github.com:anacls/wishlist.git`
@@ -45,7 +45,7 @@ Esse projeto é uma API que representa um sistema de 'Lista de Favoritos'
 
  * Caso tenha definido uma senha, descomente as linhas [20 e 21](https://github.com/anacls/wishlist/blob/master/src/main/resources/META-INF/persistence.xml#L20-L21) e [44 e 45](https://github.com/anacls/wishlist/blob/master/src/main/resources/META-INF/persistence.xml#L44-L45) e adicione a sua senha entre as aspas `("")` no campo `value`.
 
-### Compilando e rodando o projeto
+## Compilando e rodando o projeto
 * Para compilar o projeto vá até a pasta onde se encontra o arquivo `pom.xml` e execute o comando:
 
    `mvn clean install`
@@ -64,10 +64,10 @@ Esse projeto é uma API que representa um sistema de 'Lista de Favoritos'
 
      `localhost:4567/{path_da_api_aqui}`
 
-### API
+## API
 
-#### Users
-* Adicionar um usuário
+### Users Path
+* **Adicionar um usuário**
 
    `POST: api/users`
 
@@ -88,7 +88,7 @@ Esse projeto é uma API que representa um sistema de 'Lista de Favoritos'
 
       `Não foi possível criar um novo usuário, verifique se esse usuário já existe`
 
-* Ver um usuário
+* **Ver um usuário**
 
    `GET: api/users/{:id}`
 
@@ -112,7 +112,7 @@ Esse projeto é uma API que representa um sistema de 'Lista de Favoritos'
 
       `Usuário não existente na base de dados`
 
-* Ver todos os usuários
+* **Ver todos os usuários**
 
   `GET /api/users`
 
@@ -126,7 +126,7 @@ Esse projeto é uma API que representa um sistema de 'Lista de Favoritos'
    Nome: nome_do_usuario, Email: email_do_usuario, Role: role_do_usuario
    ```
 
-* Excluir um usuário
+* **Excluir um usuário**
 
    `DELETE: api/users/{:id}`
 
@@ -147,7 +147,7 @@ Esse projeto é uma API que representa um sistema de 'Lista de Favoritos'
 
       `Não foi possível excluir o usuário`
 
-* Atualizar um usuário
+* **Atualizar um usuário**
 
    `PUT: api/users/{:id}`
 
@@ -171,8 +171,8 @@ Esse projeto é uma API que representa um sistema de 'Lista de Favoritos'
 
       `Não foi possível atualizar usuário, usuário não existe`
 
-#### Wishlist
-* Adicionar na wishlist
+### Wishlist Path
+* **Adicionar na wishlist**
 
   `POST: api/wishlist`
 
@@ -190,7 +190,7 @@ Esse projeto é uma API que representa um sistema de 'Lista de Favoritos'
 
     `Não foi possível adicionar produto aos favoritos`
 
-* Ver item da lista de favoritos
+* **Ver item da lista de favoritos**
 
    `GET: api/wishlist/{:id}`
 
@@ -214,7 +214,7 @@ Esse projeto é uma API que representa um sistema de 'Lista de Favoritos'
 
       `Item não existente na lista de favoritos`
 
-* Excluir um item
+* **Excluir um item**
 
    `DELETE: api/wishlist/{:id}`
 
@@ -235,7 +235,7 @@ Esse projeto é uma API que representa um sistema de 'Lista de Favoritos'
 
       `Não foi possível excluir item`
 
-* Mostrar lista de favoritos de um cliente
+* **Mostrar lista de favoritos de um cliente**
 
    `GET: api/wishlist/user/{:id}`
 
