@@ -1,7 +1,6 @@
 package dao;
 
 import entity.WishlistItem;
-
 import java.util.List;
 
 public interface WishlistDAO {
