@@ -16,7 +16,7 @@ class UserApi {
             return String.format("Usuário\n Nome: %s, Email: %s, Role: %s",
                     user.getName(), user.getEmail(), user.getRole());
         } else {
-            response.status(400);
+            response.status(404);
             return "Usuário não existente na base de dados";
         }
     }
@@ -49,7 +49,7 @@ class UserApi {
             return "Excluido com sucesso";
         }
         else {
-            response.status(404);
+            response.status(400);
             return "Não foi possível excluir o usuário";
         }
     }
@@ -59,7 +59,7 @@ class UserApi {
                 request.queryParams("name"),
                 request.queryParams("email"));
         if(user != null) {
-            response.status(201);
+            response.status(200);
             return "Usuário atualizado com sucesso";
         }
         else {

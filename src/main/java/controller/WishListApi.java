@@ -31,7 +31,7 @@ class WishListApi {
                     wishlistItem.getId(), wishlistItem.getCustomerId());
         }
         else {
-            response.status(400);
+            response.status(404);
             return "Item não existente na lista de favoritos";
         }
     }
@@ -44,7 +44,7 @@ class WishListApi {
             retorno = "Item excluído com sucesso";
         }
         else {
-            response.status(404);
+            response.status(400);
             retorno = "Não foi possível excluir item";
         }
         return retorno;
