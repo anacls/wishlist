@@ -59,8 +59,10 @@ public class UserServiceImplUTest {
 
     @Test
     public void shouldCallDAODeleteUser() {
-        userService.removeUser(1234);
-        verify(userDAO, times(1)).deleteUser(1234);
+        User user = new User();
+        when(userService.getUser(123)).thenReturn(user);
+        userService.removeUser(123);
+        verify(userDAO, times(1)).deleteUser(123);
     }
 
     @Test

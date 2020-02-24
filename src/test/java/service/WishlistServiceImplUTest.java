@@ -62,6 +62,8 @@ public class WishlistServiceImplUTest {
 
     @Test
     public void shouldCallDAODeleteItemMethod() {
+        WishlistItem wishlistItem = new WishlistItem();
+        when(wishlistService.getItem(1234)).thenReturn(wishlistItem);
         wishlistService.deleteItem(1234);
         verify(wishlistDAO, times(1)).deleteItem(1234);
     }
