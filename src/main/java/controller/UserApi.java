@@ -4,7 +4,6 @@ import service.UserService;
 import service.UserServiceImpl;
 import spark.Request;
 import spark.Response;
-
 import java.util.List;
 
 class UserApi {
@@ -30,7 +29,7 @@ class UserApi {
         }
         else {
             response.status(400);
-            return "Não foi possível criar um novo usuário, usuário já existente";
+            return "Não foi possível criar um novo usuário, verifique se esse usuário já existe";
         }
     }
 

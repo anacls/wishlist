@@ -5,7 +5,6 @@ import service.WishlistService;
 import service.WishlistServiceImpl;
 import spark.Request;
 import spark.Response;
-
 import java.io.IOException;
 import java.util.List;
 
