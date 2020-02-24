@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
 import java.io.IOException;
 
 import static org.mockito.Mockito.*;
@@ -50,25 +49,25 @@ public class WishlistServiceImplUTest {
     }
 
     @Test
-    public void shouldCallDAOGetItemMethod(){
+    public void shouldCallDAOGetItemMethod() {
         wishlistService.getItem(1234);
         verify(wishlistDAO, times(1)).getItem(1234);
     }
 
     @Test
-    public void shouldCallDAOGetItemByCustomerAndProductId(){
+    public void shouldCallDAOGetItemByCustomerAndProductId() {
         wishlistService.getItemByCustomerAndProductId(1223, "2313122");
         verify(wishlistDAO, times(1)).getItemByCustomerAndProductId(1223, "2313122");
     }
 
     @Test
-    public void shouldCallDAODeleteItemMethod(){
+    public void shouldCallDAODeleteItemMethod() {
         wishlistService.deleteItem(1234);
         verify(wishlistDAO, times(1)).deleteItem(1234);
     }
 
     @Test
-    public void shouldCallDAOFindAllItemsForCustomer(){
+    public void shouldCallDAOFindAllItemsForCustomer() {
         wishlistService.findAllItemsForCustomer(1234);
         verify(wishlistDAO, times(1)).findAllItemsForCustomer(1234);
     }
